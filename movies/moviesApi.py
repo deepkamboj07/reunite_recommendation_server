@@ -17,12 +17,12 @@ def getAllMovies():
 def Recommend(movie):
     movie = movie.lower()
     data = pd.read_csv('movies/main_data.csv')
-    try:
-        data.head()
-        similarity.shape
-    except:
-        (data, similarity) = createSimilarity()
-        return "working hai yrr"
+    # try:
+    #     data.head()
+    #     similarity.shape
+    # except:
+    #     (data, similarity) = createSimilarity()
+    return "working hai yrr"
     # if movie not in data['movie_title'].unique():
     #     return 'Sorry! The movie you requested is not present in our database.'
     # else:
