@@ -1,5 +1,9 @@
+import pandas as pd
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
 def createSimilarity():
-    data = pd.read_csv('main_data.csv') # reading the dataset
+    data = pd.read_csv('movies/main_data.csv') # reading the dataset
     cv = CountVectorizer()
     countMatrix = cv.fit_transform(data['comb'])
     similarity = cosine_similarity(countMatrix) # creating the similarity matrix
@@ -7,11 +11,12 @@ def createSimilarity():
 
 
 def getAllMovies():
-    data = pd.read_csv('main_data.csv')
+    data = pd.read_csv('movies/main_data.csv')
     return list(data['movie_title'].str.capitalize())
 
 def Recommend(movie):
     movie = movie.lower()
+    data = pd.read_csv('movies/main_data.csv')
     try:
         data.head()
         similarity.shape

@@ -29,9 +29,17 @@ def serve():
 @cross_origin()
 def sendMovieRecomendation(name):
     print(name)
-    recommendations = Recommend(name)
-    
-    return jsonify(result='yes working', movie=name)
+    movie = name
+    recommendations = Recommend(movie)
+    if type(recommendations) == type('string'):
+        resultArray = recommendations.split('---')
+        apiResult = {'movies': resultArray}
+        return jsonify(apiResult)
+    else:
+        movieString = '---'.join(recommendations)
+        resultArray = movieString.split('---')
+        apiResult = {'movies': resultArray}
+        return jsonify(apiResult)
 
 @app.route('/api/randomMusic')
 @cross_origin()
@@ -55,3 +63,6 @@ def sendMusicData(id):
 @app.errorhandler(404)
 def not_found(e):
     return jsonify(status=404, message='NOT FOUND')
+
+if __name__ == '__main__':
+    app.run(debug=False)
