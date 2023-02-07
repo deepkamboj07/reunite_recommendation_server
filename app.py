@@ -62,22 +62,10 @@ def serve():
 
 
 #movies recomendation
-@app.route('/api/similarity')
+@app.route('/api/similarity/<name>')
 @cross_origin()
-def similarity():
-    print('avatar')
-    movie = 'avatar'
-    recommendations = Recommend(movie)
-    print(recommendations)
-    if type(recommendations) == type('string'):
-        resultArray = recommendations.split('---')
-        apiResult = {'movies': resultArray}
-        return jsonify(apiResult)
-    else:
-        movieString = '---'.join(recommendations)
-        resultArray = movieString.split('---')
-        apiResult = {'movies': resultArray}
-        return jsonify(apiResult)
+def sendMovieRecomendation(name):
+        return jsonify(result="yes working")
 
 @app.route('/api/randomMusic')
 @cross_origin()
