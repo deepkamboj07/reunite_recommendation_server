@@ -57,7 +57,7 @@ def movies():
 @app.route('/')
 @cross_origin()
 def serve():
-    return jsonify(status=200, message='Welcom to Recommendation')
+    return jsonify(status=200, message='Welcom to Recommendation',statubar='hellllllo')
 
 
 #movies recomendation
@@ -98,8 +98,3 @@ def sendMusicData(id):
 @app.errorhandler(404)
 def not_found(e):
     return jsonify(status=404, message='NOT FOUND')
-
-
-app = Flask(__name__)
-if __name__ == '__main__':
-    app.run(debug=False)
