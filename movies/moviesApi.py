@@ -20,6 +20,8 @@ def Recommend(movie):
     try:
         data.head()
         similarity.shape
+    except EOFError:
+     return "no data provided to input function"
     except:
         (data, similarity) = createSimilarity()
     if movie not in data['movie_title'].unique():

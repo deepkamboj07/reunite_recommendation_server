@@ -30,7 +30,6 @@ def serve():
 def sendMovieRecomendation(name):
     print(name)
     movie = name
-    recommendations = Recommend(movie)
     # if type(recommendations) == type('string'):
     #     resultArray = recommendations.split('---')
     #     apiResult = {'movies': resultArray}
@@ -39,6 +38,10 @@ def sendMovieRecomendation(name):
     #     movieString = '---'.join(recommendations)
     #     resultArray = movieString.split('---')
     #     apiResult = {'movies': resultArray}
+    try:
+        recommendations = Recommend(movie)
+    except EOFError:
+     return jsonify("no data provided to input function")
     return jsonify(recommendations)
 
 @app.route('/api/randomMusic')
