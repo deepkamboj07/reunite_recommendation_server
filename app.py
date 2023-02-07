@@ -45,6 +45,7 @@ app = Flask(__name__, static_folder='movie-recommender-app/build',
             static_url_path='/')
 cors = CORS(app, resources={r"*": {"origins": "https://reunite.onrender.com"}})
 
+
 @app.route('/api/movies', methods=['GET'])
 @cross_origin()
 def movies():
@@ -64,8 +65,10 @@ def serve():
 @app.route('/api/similarity/<name>')
 @cross_origin()
 def similarity(name):
+    print(name)
     movie = name
     recommendations = Recommend(movie)
+    print(recommendations)
     if type(recommendations) == type('string'):
         resultArray = recommendations.split('---')
         apiResult = {'movies': resultArray}
