@@ -6,6 +6,8 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from flask import Flask, request, render_template, jsonify
 from music.randomSerach import send_results, generate_recoms, sendSongofGivenId
+from flask_cors import CORS
+
 
 
 def createSimilarity():
@@ -99,5 +101,7 @@ def sendMusicData(id):
 def not_found(e):
     return jsonify(status=404, message='NOT FOUND')
 
+
+app = Flask(__name__)
 if __name__ == '__main__':
     app.run(debug=False)
