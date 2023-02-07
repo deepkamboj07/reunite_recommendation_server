@@ -33,5 +33,5 @@ def Recommend(movie):
         for i in range(len(lst)):
             a = lst[i][0]
             movieList.append(data['movie_title'][a])
-        return movieList
+        return 'working hai bhai'
 
