@@ -31,16 +31,16 @@ def sendMovieRecomendation(name):
     print(name)
     movie = name
     recommendations = Recommend(movie)
-    if type(recommendations) == type('string'):
-        resultArray = recommendations.split('---')
-        apiResult = {'movies': resultArray}
-        return jsonify(apiResult)
-    else:
-        movieString = '---'.join(recommendations)
-        resultArray = movieString.split('---')
-        apiResult = {'movies': resultArray}
-        return jsonify(apiResult)
-
+    # if type(recommendations) == type('string'):
+    #     resultArray = recommendations.split('---')
+    #     apiResult = {'movies': resultArray}
+    #     return jsonify(apiResult)
+    # else:
+    #     movieString = '---'.join(recommendations)
+    #     resultArray = movieString.split('---')
+    #     apiResult = {'movies': resultArray}
+    #     return jsonify(apiResult)
+    return jsonify(result=recommendations)
 @app.route('/api/randomMusic')
 @cross_origin()
 def sendRandomMusic():
