@@ -43,7 +43,7 @@ def Recommend(movie):
 
 app = Flask(__name__, static_folder='movie-recommender-app/build',
             static_url_path='/')
-CORS(app)
+cors = CORS(app, resources={r"*": {"origins": "*"}})
 
 @app.route('/api/movies', methods=['GET'])
 @cross_origin()
