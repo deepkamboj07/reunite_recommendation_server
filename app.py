@@ -65,7 +65,11 @@ def serve():
 @app.route('/api/similarity/<name>')
 @cross_origin()
 def sendMovieRecomendation(name):
-        return jsonify(result="yes working")
+    print(name)
+    movie = name
+    recommendations = Recommend(movie)
+    
+    return jsonify(result='yes working', movie=name)
 
 @app.route('/api/randomMusic')
 @cross_origin()
