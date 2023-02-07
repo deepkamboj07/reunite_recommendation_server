@@ -24,14 +24,14 @@ def Recommend(movie):
         (data, similarity) = createSimilarity()
     if movie not in data['movie_title'].unique():
         return 'Sorry! The movie you requested is not present in our database.'
-    else:
-        movieIndex = data.loc[data['movie_title'] == movie].index[0]
-        lst = list(enumerate(similarity[movieIndex]))
-        lst = sorted(lst, key=lambda x: x[1], reverse=True)
-        lst = lst[1:20]  # excluding first item since it is the requested movie itself and taking the top20 movies
-        movieList = []
-        for i in range(len(lst)):
-            a = lst[i][0]
-            movieList.append(data['movie_title'][a])
-        return 'working hai bhai'
+    # else:
+    #     movieIndex = data.loc[data['movie_title'] == movie].index[0]
+    #     lst = list(enumerate(similarity[movieIndex]))
+    #     lst = sorted(lst, key=lambda x: x[1], reverse=True)
+    #     lst = lst[1:20]  # excluding first item since it is the requested movie itself and taking the top20 movies
+    #     movieList = []
+    #     for i in range(len(lst)):
+    #         a = lst[i][0]
+    #         movieList.append(data['movie_title'][a])
+    return 'working hai bhai'
 
