@@ -62,11 +62,11 @@ def serve():
 
 
 #movies recomendation
-@app.route('/api/similarity/<name>')
+@app.route('/api/similarity')
 @cross_origin()
-def similarity(name):
-    print(name)
-    movie = name
+def similarity():
+    print('avatar')
+    movie = 'avatar'
     recommendations = Recommend(movie)
     print(recommendations)
     if type(recommendations) == type('string'):
